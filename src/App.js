@@ -13,7 +13,6 @@ import ThanksMessage from "./components/ThanksMessage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollToTopButton from "./components/ScrollToTopButton";
-import Feedback from "./components/Feedback";
 
 export default function App() {
   const [isDarkMode, setIsDarkMode] = React.useState(false);
