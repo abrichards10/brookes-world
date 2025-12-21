@@ -10,9 +10,7 @@ const Home = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
       >
-        <div className="BrookesWorld">
-          Brooke<span className="apostrophe">'</span>s World
-        </div>
+        <div className="BrookesWorld">Brookes' World</div>
       </motion.h1>
       <motion.h2
         initial={{ opacity: 0 }}
