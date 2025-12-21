@@ -53,7 +53,7 @@ const person = [
     name: "Rachel Scales",
     testimonial: {
       title: "Innovative Learning Manager",
-      text: "\"I've had the privilege of working with Brooke for over a year, and I can confidently say that she is an extraordinary educator. She cultivates a lively, collaborative learning environment and skillfully differentiates her teaching so all students can thrive. A former student of Brooke's once remarked that they never really enjoyed school but always looked forward to her class. She is adept at engaging students in both in-person and remote settings. It's not just her teaching skills that impress me. Beyond the classroom, Brooke is a dedicated and thoughtful leader, providing invaluable mentorship to colleagues.\"",
+      text: "\"I've had the privilege of working with Brooke for over a year, and I can confidently say that she is an extraordinary educator. She cultivates a lively, collaborative learning environment and skillfully differentiates her teaching so all students can thrive. A former student of Brookes once remarked that they never really enjoyed school but always looked forward to her class. She is adept at engaging students in both in-person and remote settings. It's not just her teaching skills that impress me. Beyond the classroom, Brooke is a dedicated and thoughtful leader, providing invaluable mentorship to colleagues.\"",
       picture: rachel,
     },
   },

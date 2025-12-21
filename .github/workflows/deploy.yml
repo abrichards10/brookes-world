@@ -1,4 +1,4 @@
-name: Deploy Brooke's World to GitHub Pages
+name: Deploy Brookes' World to GitHub Pages
 
 on:
   push:
