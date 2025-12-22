@@ -95,7 +95,7 @@ export default function App() {
   }, [isDarkMode]);
 
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename="/brookes-world">
       <Routes>
         <Route
           path="/"
