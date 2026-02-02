@@ -15,7 +15,7 @@ const Cloud = ({ size, speed, top }) => {
   const circleSize = circleBase * sizeMultiplier;
   
   const duration = speed === 'fast' ? 80 : speed === 'slow' ? 220 : 150;
-  const opacity = size === 'large' ? 0.12 : size === 'small' ? 0.2 : 0.15;
+  const opacity = size === 'large' ? 0.3 : size === 'small' ? 0.45 : 0.35;
   
   return (
     <div 
