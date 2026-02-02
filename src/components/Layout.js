@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import CloudsAnimation from "./CloudsAnimation";
 import StarsAnimation from "./StarsAnimation";
 
-const Layout = ({ isDarkMode, backgroundColor, scrollPercent }) => {
+const Layout = ({ isDarkMode, backgroundColor }) => {
   // Show clouds in light mode, stars in dark mode
   const showClouds = !isDarkMode;
   const showStars = isDarkMode;

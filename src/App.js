@@ -17,56 +17,12 @@ import ScrollToTopButton from "./components/ScrollToTopButton";
 export default function App() {
   const [isDarkMode, setIsDarkMode] = React.useState(false);
   const [backgroundColor, setBgColor] = React.useState("#E8E6E1");
-  const [scrollPercent, setScrollPercent] = React.useState(0);
 
   const toggleDarkMode = () => {
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
     setBgColor(newMode ? "#18181B" : "#E8E6E1");
   };
-
-  React.useEffect(() => {
-    const interpolateColor = (color1, color2, percent) => {
-      const rgb1 = hexToRgb(color1);
-      const rgb2 = hexToRgb(color2);
-      const r = Math.round(rgb1.r + (rgb2.r - rgb1.r) * percent);
-      const g = Math.round(rgb1.g + (rgb2.g - rgb1.g) * percent);
-      const b = Math.round(rgb1.b + (rgb2.b - rgb1.b) * percent);
-      return `rgb(${r}, ${g}, ${b})`;
-    };
-
-    const hexToRgb = (hex) => {
-      let r = 0,
-        g = 0,
-        b = 0;
-      if (hex.length === 4) {
-        r = parseInt(hex[1] + hex[1], 16);
-        g = parseInt(hex[2] + hex[2], 16);
-        b = parseInt(hex[3] + hex[3], 16);
-      } else if (hex.length === 7) {
-        r = parseInt(hex[1] + hex[2], 16);
-        g = parseInt(hex[3] + hex[4], 16);
-        b = parseInt(hex[5] + hex[6], 16);
-      }
-      return { r, g, b };
-    };
-
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const scrollMax =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const percent = Math.min(scrollPosition / scrollMax, 1);
-      setScrollPercent(percent);
-
-      // Only update background color if not in manual dark/light mode
-      // When toggled, the background stays fixed
-    };
-
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <BrowserRouter basename="/brookes-world">
@@ -77,7 +33,6 @@ export default function App() {
             <Layout
               isDarkMode={isDarkMode}
               backgroundColor={backgroundColor}
-              scrollPercent={scrollPercent}
             />
           }
         >
