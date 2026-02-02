@@ -16,13 +16,13 @@ import ScrollToTopButton from "./components/ScrollToTopButton";
 
 export default function App() {
   const [isDarkMode, setIsDarkMode] = React.useState(false);
-  const [backgroundColor, setBgColor] = React.useState("#B8D4E3");
+  const [backgroundColor, setBgColor] = React.useState("#E8E6E1");
   const [scrollPercent, setScrollPercent] = React.useState(0);
 
   const toggleDarkMode = () => {
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
-    setBgColor(newMode ? "#0D0D14" : "#B8D4E3");
+    setBgColor(newMode ? "#18181B" : "#E8E6E1");
   };
 
   React.useEffect(() => {

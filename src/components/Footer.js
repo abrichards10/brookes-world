@@ -1,5 +1,5 @@
 import React from "react";
-import { FaLinkedin, FaGithub, FaCalendarAlt, FaHeart } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 import "./App.css";
 
 const Footer = ({ darkMode }) => {
@@ -15,7 +15,7 @@ const Footer = ({ darkMode }) => {
               className="social-link linkedin"
               aria-label="LinkedIn"
             >
-              <FaLinkedin size={20} />
+              <FaLinkedin size={16} />
             </a>
             <a
               href="https://github.com/abrichards10"
@@ -24,39 +24,30 @@ const Footer = ({ darkMode }) => {
               className="social-link github"
               aria-label="GitHub"
             >
-              <FaGithub size={20} />
+              <FaGithub size={16} />
             </a>
-            <div className="dateCreated">
-              <FaCalendarAlt size={16} style={{ marginRight: "8px" }} />
-              <span>Est. August 2024</span>
-            </div>
+            <span className="dateCreated">Est. 2024</span>
           </div>
           <div className="contact-info">
-            <p>
-              <a href="mailto:angelarichards261@gmail.com">
-                angelarichards261@gmail.com
-              </a>
-            </p>
+            <a href="mailto:angelarichards261@gmail.com">
+              angelarichards261@gmail.com
+            </a>
           </div>
           <div className="copyright">
-            <p>
-              Built with <FaHeart size={12} style={{ verticalAlign: 'middle', margin: '0 4px' }} /> by Brooke Richards
-              {" · "}&copy; {new Date().getFullYear()} All rights reserved
-            </p>
+            <p>&copy; {new Date().getFullYear()} Brooke Richards</p>
           </div>
         </div>
         <div className="footer-websites">
-          <b>Cool Finds:</b>
+          <b>Cool Finds</b>
           <ul>
             <li>
               <a
                 href="http://typelit.io/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="links"
               >
-                <span className="links">
-                  <u>Typelit</u> → Practice typing books
-                </span>
+                Typelit
               </a>
             </li>
             <li>
@@ -64,10 +55,9 @@ const Footer = ({ darkMode }) => {
                 href="https://websim.ai/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="links"
               >
-                <span className="links">
-                  <u>Websim.ai</u> → AI website generator
-                </span>
+                Websim.ai
               </a>
             </li>
             <li>
@@ -75,10 +65,9 @@ const Footer = ({ darkMode }) => {
                 href="https://excalidraw.com/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="links"
               >
-                <span className="links">
-                  <u>Excalidraw</u> → Sketch diagrams
-                </span>
+                Excalidraw
               </a>
             </li>
           </ul>
