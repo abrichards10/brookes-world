@@ -98,7 +98,7 @@ body {
 
 #root {
   background-color: #E8E6E1;
-  min-height: 100vh;
+  min-height: 100vh; 
 }
 
 /* ========================================
@@ -516,7 +516,7 @@ body {
 @media (max-width: 768px) {
   .intro-content {
     flex-direction: column;
-    text-align: center;
+  text-align: center;
   }
   
   .intro-photo {
@@ -852,7 +852,7 @@ body {
   justify-content: center;
   padding: var(--space-md);
   text-align: center;
-  opacity: 0;
+  opacity: 0; 
   transition: all var(--transition-base);
 }
 
@@ -909,7 +909,7 @@ body {
   position: relative;
   min-height: 380px;
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  overflow: hidden; 
   transition: all var(--transition-base);
   cursor: pointer;
 }
@@ -1371,7 +1371,7 @@ body {
   position: absolute;
   background: white;
   border-radius: var(--radius-full);
-  box-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+  will-change: opacity;
 }
 
 .show-stars .star {
@@ -1384,12 +1384,10 @@ body {
 
 @keyframes twinkle {
   0%, 100% { 
-    opacity: 0.9; 
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+  opacity: 1;
   }
   50% { 
-    opacity: 0.3; 
-    box-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+    opacity: 0.2; 
   }
 }
 
@@ -1397,7 +1395,7 @@ body {
   position: absolute;
   background: white;
   border-radius: var(--radius-full);
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8), -8px 0 15px rgba(255, 255, 255, 0.4);
+  will-change: transform, opacity;
 }
 
 @keyframes shoot {
@@ -1420,6 +1418,7 @@ body {
   position: absolute;
   opacity: 0.15;
   animation: cloudMove linear infinite;
+  will-change: transform;
 }
 
 .cloud .circle {
@@ -1742,5 +1741,35 @@ body {
   
   .companies-list {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION ACCESSIBILITY
+   For users who prefer reduced motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .star,
+  .shooting-star,
+  .cloud {
+    animation: none !important;
+  }
+  
+  .twinkle {
+    animation: none !important;
+    opacity: 0.7;
+  }
+  
+  .stars-container,
+  .clouds-container {
+    display: none;
   }
 }

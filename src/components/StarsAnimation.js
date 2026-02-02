@@ -28,30 +28,30 @@ const StarsAnimation = () => {
       star.style.opacity = Math.random() * 0.6 + 0.4;
       star.style.transform = 'scale(1)';
       
-      star.style.animationDuration = `${Math.random() * 2 + 1}s`;
-      star.style.animationDelay = `${Math.random() * 3}s`;
+      // Slightly slower twinkle: 2-5s instead of 1-3s
+      star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+      star.style.animationDelay = `${Math.random() * 4}s`;
 
       starsContainer.appendChild(star);
     }
 
-    // Add shooting stars - spread across entire screen
-    for (let i = 0; i < 5; i++) {
+    // Add shooting stars - spread across entire screen, but less frequent
+    for (let i = 0; i < 3; i++) {
       const shootingStar = document.createElement("div");
       shootingStar.className = "shooting-star";
       
       const size = Math.random() * 2 + 1;
-      // Spread shooting stars across the full screen
-      const top = Math.random() * 70; // Can start anywhere in top 70%
+      const top = Math.random() * 70; // Full top 70%
       const left = Math.random() * 100; // Full width
-      const duration = Math.random() * 3 + 2;
+      const duration = Math.random() * 2 + 1.5;
 
       shootingStar.style.width = `${size}px`;
       shootingStar.style.height = `${size}px`;
       shootingStar.style.top = `${top}%`;
       shootingStar.style.left = `${left}%`;
       shootingStar.style.animation = `shoot ${duration}s linear infinite`;
-      // Stagger the delays so they don't all appear at once
-      shootingStar.style.animationDelay = `${i * 3 + Math.random() * 2}s`;
+      // Longer delays between shooting stars (every 8-15 seconds)
+      shootingStar.style.animationDelay = `${i * 8 + Math.random() * 5}s`;
 
       starsContainer.appendChild(shootingStar);
     }
