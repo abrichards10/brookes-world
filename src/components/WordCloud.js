@@ -3,46 +3,60 @@ import TagCloud from "TagCloud";
 
 const container = ".content";
 const texts = [
+  // Frontend
+  "Vue.js",
+  "React",
+  "TypeScript",
+  "JavaScript",
   "Flutter",
   "Dart",
-  "Objective-C",
-  "C#",
-  "JavaScript",
-  "Typescript",
-  "NodeJS",
-  "Python",
-  "iOS Development",
-  "Android Development",
-  "Firestore",
-  "AWS",
-  "Docker",
-  "Postman",
-  "XCode",
-  "Jupyter Notebook",
   "HTML",
   "CSS",
-  "React",
   "Bootstrap",
+  // Backend & Languages
+  "Node.js",
+  "Python",
   "Java",
+  "C#",
+  "Objective-C",
+  // Databases & Data
+  "PostgreSQL",
+  "BigQuery",
+  "Firestore",
+  // Cloud & DevOps
+  "GCP",
+  "AWS",
+  "Docker",
+  "CI/CD",
+  // Identity & Auth
+  "Auth0",
+  "Okta",
+  "Microsoft Entra",
+  "RBAC",
+  // Mobile
+  "iOS Development",
+  "Android Development",
+  "XCode",
+  // Tools
+  "Git",
+  "Postman",
+  "Jupyter Notebook",
 ];
 
 const options = {
-  radius: 250, // Increased radius for a larger cloud
-  maxSpeed: "fast",
-  initSpeed: "normal", // Slightly slower initial speed
-  direction: 135, // Diagonal direction for a different effect
+  radius: 220,
+  maxSpeed: "normal",
+  initSpeed: "slow",
+  direction: 135,
   keep: true,
-  useContainerInlineStyle: true, // Apply styles directly to the container
+  useContainerInlineStyle: true,
 };
 
 const WordCloud = () => {
   useEffect(() => {
-    // Initialize TagCloud
     const tagCloudInstance = TagCloud(container, texts, options);
 
-    // Cleanup function to remove the TagCloud instance
     return () => {
-      // Assuming `TagCloud` exposes a method to remove or destroy instances
       if (tagCloudInstance && typeof tagCloudInstance.destroy === "function") {
         tagCloudInstance.destroy();
       }

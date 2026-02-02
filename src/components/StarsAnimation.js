@@ -1,83 +1,70 @@
-import React, { useEffect, useState } from "react";
-import "./App.css"; // Import the CSS file
+import React, { useEffect, useRef } from "react";
+import "./App.css";
 
 const StarsAnimation = () => {
-  const [showStars, setShowStars] = useState(false);
+  const containerRef = useRef(null);
+  const initialized = useRef(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const documentHeight = document.documentElement.scrollHeight;
-      const windowHeight = window.innerHeight;
+    if (initialized.current || !containerRef.current) return;
+    initialized.current = true;
 
-      // Show stars when user scrolls close to the bottom of the page
-      if (scrollY + windowHeight > documentHeight - 100) {
-        // Adjust threshold as needed
-        setShowStars(true);
-      } else {
-        setShowStars(false);
-      }
-    };
+    const starsContainer = containerRef.current;
+    const numStars = 200;
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const starsContainer = document.querySelector(".stars-container");
-    starsContainer.innerHTML = ""; // Clear existing stars
-    const numStars = 100; // Adjust the number of stars as needed
-    const twinkleChance = 0.3; // Chance that a star will twinkle
-    const numShootingStars = 5; // Number of shooting stars
-
-    // Function to generate random stars
+    // Generate stars with twinkling
     for (let i = 0; i < numStars; i++) {
       const star = document.createElement("div");
-      star.className = "star";
-      // Set random size and position
-      const size = Math.random() * 3 + 1; // Size between 1 and 4
+      star.className = "star twinkle"; // All stars twinkle
+      
+      const size = Math.random() * 3 + 1;
       const top = Math.random() * 100;
       const left = Math.random() * 100;
+      
       star.style.width = `${size}px`;
       star.style.height = `${size}px`;
       star.style.top = `${top}%`;
       star.style.left = `${left}%`;
-
-      // Randomly decide if this star should twinkle
-      if (Math.random() < twinkleChance) {
-        star.classList.add("twinkle");
-      }
+      star.style.opacity = Math.random() * 0.6 + 0.4;
+      star.style.transform = 'scale(1)';
+      
+      // Randomize twinkle animation timing for variety
+      star.style.animationDuration = `${Math.random() * 2 + 1}s`;
+      star.style.animationDelay = `${Math.random() * 3}s`;
 
       starsContainer.appendChild(star);
     }
 
-    // Function to generate shooting stars
-    for (let i = 0; i < numShootingStars; i++) {
+    // Add shooting stars
+    for (let i = 0; i < 5; i++) {
       const shootingStar = document.createElement("div");
       shootingStar.className = "shooting-star";
-      // Set random size and position
-      const size = Math.random() * 2 + 1; // Size between 1 and 3
-      const top = Math.random() * 100;
-      const left = Math.random() * 100;
-      const duration = Math.random() * 7 + 2; // Duration between 2 and 5 seconds
-      const direction = Math.random() > 0.5 ? "left" : "right"; // Random direction
+      
+      const size = Math.random() * 2 + 1;
+      const top = Math.random() * 40;
+      const left = Math.random() * 60;
+      const duration = Math.random() * 2 + 1.5;
 
       shootingStar.style.width = `${size}px`;
       shootingStar.style.height = `${size}px`;
       shootingStar.style.top = `${top}%`;
       shootingStar.style.left = `${left}%`;
       shootingStar.style.animation = `shoot ${duration}s linear infinite`;
-
-      if (direction === "left") {
-        shootingStar.style.animationDirection = "reverse";
-      }
+      shootingStar.style.animationDelay = `${Math.random() * 8}s`;
 
       starsContainer.appendChild(shootingStar);
     }
-  }, [showStars]);
+
+    return () => {
+      if (starsContainer) {
+        starsContainer.innerHTML = "";
+      }
+      initialized.current = false;
+    };
+  }, []);
 
   return (
-    <div className={`stars-container ${showStars ? "show-stars" : ""}`}></div>
+    <div ref={containerRef} className="stars-container show-stars"></div>
   );
 };
 

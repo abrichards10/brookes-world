@@ -1,33 +1,33 @@
 import React from "react";
 import { motion } from "framer-motion";
-import "./App.css"; // Make sure this CSS file includes the required styles
+import "./App.css";
 
 const Home = () => {
   return (
     <div className="FirstText">
       <motion.h1
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <div className="BrookesWorld">Brookes' World</div>
+        <div className="BrookesWorld">Brooke's World</div>
       </motion.h1>
       <motion.h2
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 3 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
       >
+        <i>"Commitment is an act, not a word."</i>
         <br />
-        <i> "Commitment is an act, not a word." – Jean-Paul Sartre </i>
+        <span style={{ fontSize: '0.9em', opacity: 0.7 }}>– Jean-Paul Sartre</span>
       </motion.h2>
       <motion.h5
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 4 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
       >
-        <br />I am a teacher, mentor, and software engineer!
+        Full Stack Developer · Educator · Builder
       </motion.h5>
-      {/* Add more content here */}
     </div>
   );
 };

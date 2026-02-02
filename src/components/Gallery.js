@@ -8,40 +8,47 @@ import projectImage3 from "./assets/SideProject3.png";
 import projectImage4 from "./assets/SideProject4.jpg";
 import projectImage5 from "./assets/SideProject5.png";
 import projectImage6 from "./assets/SideProject6.jpg";
+import belleDancing from "./assets/BelleDancing.jpg";
 
 const projects = [
   {
     image: projectImage5,
-    caption: "Project 5",
+    caption: "Teaching",
     summary:
-      "Meeting with a group of talented women to break them back into the tech field after a gap year – creating and teaching a rigorous curriculum to teach full stack Python web development",
+      "Meeting with a group of talented women to break them back into the tech field after a gap year – creating and teaching a rigorous curriculum to teach full stack Python web development",
   },
   {
     image: projectImage1,
-    caption: "Project 1",
+    caption: "Home Renovation",
     summary:
       "Renovating my childhood home to create a space for an AirBnB (featuring my dad ❤️) I drive 3 hours every 3 weeks to work on another part of the project.",
   },
   {
     image: projectImage2,
-    caption: "Project 2",
+    caption: "Rock Climbing",
     summary:
       "Since December 2022, I have been consistently climbing 2-3x per week with my partner to help relieve the pain caused by my severe scoliosis.",
   },
   {
     image: projectImage3,
-    caption: "Project 3",
-    summary: "My quest to learn Spanish, Italian and Latin 🇪🇸 🇮🇹 ",
+    caption: "Learning Spanish",
+    summary: "My quest to learn Spanish on Duolingo 🇪🇸 ¡Vamos!",
   },
   {
     image: projectImage4,
-    caption: "Project 4",
+    caption: "BEST Trial",
     summary:
-      "Currently a part of the BEST Trial for Chronic Back Pain - currently working on the second round of treatment! ",
+      "Completed the BEST Trial for Chronic Back Pain – finished both rounds of treatment! 🎉",
+  },
+  {
+    image: belleDancing,
+    caption: "BELLE Dancing",
+    summary:
+      "Dancing with BELLE – expressing creativity and staying active through movement 💃",
   },
   {
     image: projectImage6,
-    caption: "Project 4",
+    caption: "Writing",
     summary: (
       <>
         I like to write things, this one is my longest:{" "}

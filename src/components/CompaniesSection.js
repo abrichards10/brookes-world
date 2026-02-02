@@ -9,59 +9,63 @@ import brooke from "./assets/it_crowd_icon.png";
 
 const companies = [
   {
+    name: "Qurrent",
+    logo: null,
+    website: "https://www.qurrent.ai",
+    role: {
+      title: "Full Stack Developer",
+      text: "Building and maintaining the Supervisor application—an enterprise platform for AI workforce management. Responsible for Vue.js frontend, PostgreSQL databases, GCP infrastructure, and identity integrations (Auth0, Okta, Microsoft Entra).",
+    },
+    testimonial: {
+      name: "Brooke Richards",
+      title: "A Note From Me",
+      text: '"My journey through startups and teaching has shaped who I am as an engineer. At Dishcovery, I learned the value of ownership, teamwork, and building what people actually need. Now at Qurrent, I get to apply those lessons at scale while continuing to grow."',
+      picture: brooke,
+    },
+    isCurrent: true,
+  },
+  {
     name: "Dishcovery",
     logo: dishlogo,
     website: "https://www.dishcovery.io",
-    testimonial: {
+    role: {
       title: "Lead Front-End Engineer",
-      text: "As a lead front-end engineer at Dishcovery, I mentored the team and drove product development. My contributions were highly valued, particularly in leading hackathons and optimizing code deployment.",
-      picture: dishlogo,
+      text: "Led front-end development and mentored the engineering team. Drove product development, organized hackathons, and optimized code deployment workflows.",
+    },
+    testimonial: {
+      name: "Brooke Richards",
+      title: "Reflecting on Dishcovery",
+      text: '"My experience at Dishcovery taught me the innate value of ownership, consistency, teamwork and leadership. I learned how to learn fast and how to put all of your energy into building what people want rather than just what seems cool."',
+      picture: brooke,
     },
   },
   {
     name: "Mission Bit",
     logo: missionlogo,
     website: "https://www.missionbit.org",
-    testimonial: {
+    role: {
       title: "HTML/CSS/UI/UX Instructor",
-      text: "At Mission Bit, I led HTML/CSS/UI/UX classes for high school students, inspiring them with engaging projects and guiding them through their coding journey.",
-      picture: missionlogo,
+      text: "Led HTML/CSS/UI/UX classes for high school students, creating engaging curriculum and inspiring the next generation of developers.",
     },
-  },
-  {
-    name: "SEO (Sponsors for Educational Opportunity)",
-    logo: seologo,
-    website: "https://www.seo-usa.org",
     testimonial: {
-      title: "Software Engineering Teaching Assistant",
-      text: "At SEO, I served as a Software Engineering Teaching Assistant and Career Mentor, providing guidance on Python, SQL, and career development. I facilitated workshops and office hours, supporting students in their journey to become successful developers.",
-      picture: seologo,
-    },
-  },
-];
-
-const person = [
-  {
-    name: "Brooke Richards",
-    testimonial: {
-      title: "Builder of this Website",
-      text: '"My experience at Dishcovery taught me more than I could ever hope for. I was working with a small team relying heavily on one another to succeed. I was taught the innate value of ownership, consistency, teamwork and leadership.  I was also taught the importance of automation, how to learn fast and how to put all of your energy into building what people want rather than just what seems cool.  In the future, I would like to expand on my experience I had at this company, and join another brilliant, crazy team to continue experimenting with."',
-      picture: brooke,
-    },
-  },
-  {
-    name: "Rachel Scales",
-    testimonial: {
-      title: "Innovative Learning Manager",
-      text: "\"I've had the privilege of working with Brooke for over a year, and I can confidently say that she is an extraordinary educator. She cultivates a lively, collaborative learning environment and skillfully differentiates her teaching so all students can thrive. A former student of Brookes once remarked that they never really enjoyed school but always looked forward to her class. She is adept at engaging students in both in-person and remote settings. It's not just her teaching skills that impress me. Beyond the classroom, Brooke is a dedicated and thoughtful leader, providing invaluable mentorship to colleagues.\"",
+      name: "Rachel Scales",
+      title: "Innovative Learning Manager @ Mission Bit",
+      text: "\"I've had the privilege of working with Brooke for over a year. She is an extraordinary educator who cultivates a lively, collaborative learning environment. A former student remarked that they never really enjoyed school but always looked forward to her class. Beyond the classroom, Brooke is a dedicated leader and mentor.\"",
       picture: rachel,
     },
   },
   {
-    name: "Anteneh Zewdie",
+    name: "SEO",
+    logo: seologo,
+    website: "https://www.seo-usa.org",
+    role: {
+      title: "Software Engineering TA & Career Mentor",
+      text: "Served as a Software Engineering Teaching Assistant, providing guidance on Python, SQL, and career development through workshops and office hours.",
+    },
     testimonial: {
-      title: "SWE Intern @ Prevent Overdose Inc. ",
-      text: '"I had the distinct privilege of being mentored by Brooke during my technical interview preparation at Sponsors for Educational Opportunities. Brooke’s expertise as a Software Engineer and Career Mentor was evident from the very first session, and her mentorship has been instrumental in my growth and readiness for my career."',
+      name: "Anteneh Zewdie",
+      title: "SWE Intern @ Prevent Overdose Inc.",
+      text: '"I had the privilege of being mentored by Brooke during my technical interview preparation at SEO. Her expertise as a Software Engineer and Career Mentor was evident from the first session, and her mentorship has been instrumental in my growth."',
       picture: anteneh,
     },
   },
@@ -70,31 +74,63 @@ const person = [
 const CompaniesSection = () => {
   return (
     <section className="companies-section">
-      <h2 className="Companiestext">Companies I've Committed To</h2>
+      <h2 className="Companiestext">Experience & Impact</h2>
       <div className="companies-list">
         {companies.map((company, index) => (
-          <div key={index} className="company-card">
+          <div 
+            key={index} 
+            className={`company-card ${company.isCurrent ? 'no-flip' : ''}`}
+          >
             <div className="card-front">
-              <img
-                src={company.logo}
-                alt={company.name}
-                className="company-logo"
-              />
-              <p>{company.testimonial.text}</p>
+              {company.logo ? (
+                <img
+                  src={company.logo}
+                  alt={company.name}
+                  className="company-logo"
+                />
+              ) : (
+                <div style={{ 
+                  fontSize: '2.5rem', 
+                  fontWeight: '600', 
+                  fontFamily: 'var(--font-display)',
+                  marginBottom: 'var(--space-md)',
+                  letterSpacing: '-0.02em'
+                }}>
+                  {company.name}
+                </div>
+              )}
+              {company.isCurrent && (
+                <span style={{
+                  display: 'inline-block',
+                  padding: '4px 12px',
+                  borderRadius: '9999px',
+                  fontSize: '0.75rem',
+                  fontWeight: '600',
+                  background: 'rgba(76, 175, 80, 0.15)',
+                  color: '#4CAF50',
+                  marginBottom: 'var(--space-md)',
+                }}>
+                  Current Role
+                </span>
+              )}
+              <p style={{ fontWeight: '500', marginBottom: '0.5rem' }}>
+                {company.role.title}
+              </p>
+              <p>{company.role.text}</p>
             </div>
             <div className="card-back">
               <img
-                src={person[index]?.testimonial.picture}
-                alt={person[index]?.name}
+                src={company.testimonial.picture}
+                alt={company.testimonial.name}
                 className="testimonial-image"
               />
-              <h6 className="testName">{person[index]?.name}</h6>
+              <h6 className="testName">{company.testimonial.name}</h6>
               <h6 className="testimonial-title">
-                {person[index]?.testimonial.title}
+                {company.testimonial.title}
               </h6>
               <i>
                 <p className="testimonial-text">
-                  {person[index]?.testimonial.text}
+                  {company.testimonial.text}
                 </p>
               </i>
             </div>

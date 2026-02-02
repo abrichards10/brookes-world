@@ -16,14 +16,13 @@ import ScrollToTopButton from "./components/ScrollToTopButton";
 
 export default function App() {
   const [isDarkMode, setIsDarkMode] = React.useState(false);
-  const [backgroundColor, setBgColor] = React.useState("var(--light-bg)");
-  const [showClouds, setShowClouds] = React.useState(false);
+  const [backgroundColor, setBgColor] = React.useState("#B8D4E3");
+  const [scrollPercent, setScrollPercent] = React.useState(0);
 
   const toggleDarkMode = () => {
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
-    setShowClouds(false); // Reset clouds on dark mode change
-    setBgColor(newMode ? "var(--dark-start-bg)" : "var(--light-bg)");
+    setBgColor(newMode ? "#0D0D14" : "#B8D4E3");
   };
 
   React.useEffect(() => {
@@ -56,43 +55,18 @@ export default function App() {
       const scrollPosition = window.scrollY;
       const scrollMax =
         document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = Math.min(scrollPosition / scrollMax, 1); // Get percentage scrolled
+      const percent = Math.min(scrollPosition / scrollMax, 1);
+      setScrollPercent(percent);
 
-      if (isDarkMode) {
-        // Interpolate between dark-start-bg and dark-bg
-        const darkStartColor = getComputedStyle(
-          document.documentElement
-        ).getPropertyValue("--dark-start-bg");
-        const darkEndColor = getComputedStyle(
-          document.documentElement
-        ).getPropertyValue("--dark-bg");
-        const interpolatedColor = interpolateColor(
-          darkStartColor,
-          darkEndColor,
-          scrollPercent
-        );
-        setBgColor(interpolatedColor);
-      } else {
-        // Interpolate between light-bg and blue
-        const lightStartColor = getComputedStyle(
-          document.documentElement
-        ).getPropertyValue("--light-bg");
-        const lightEndColor = getComputedStyle(
-          document.documentElement
-        ).getPropertyValue("--blue");
-        const interpolatedColor = interpolateColor(
-          lightStartColor,
-          lightEndColor,
-          scrollPercent
-        );
-        setBgColor(interpolatedColor);
-        setShowClouds(scrollPercent > 0.5); // Show clouds on scroll down
-      }
+      // Only update background color if not in manual dark/light mode
+      // When toggled, the background stays fixed
     };
+
+    handleScroll();
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isDarkMode]);
+  }, []);
 
   return (
     <BrowserRouter basename="/brookes-world">
@@ -101,10 +75,9 @@ export default function App() {
           path="/"
           element={
             <Layout
-              toggleDarkMode={toggleDarkMode}
               isDarkMode={isDarkMode}
               backgroundColor={backgroundColor}
-              showClouds={showClouds}
+              scrollPercent={scrollPercent}
             />
           }
         >
@@ -126,7 +99,6 @@ export default function App() {
                 <Gallery />
                 <CompaniesSection />
                 <ThanksMessage />
-                {/* Add the Feedback component here */}
                 <Footer />
                 <ScrollToTopButton />
               </>

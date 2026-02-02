@@ -1,17 +1,17 @@
 // Header.js
 import React from "react";
-import { FaMoon, FaRegCommentAlt } from "react-icons/fa";
-import logo from "./assets/ghibliIcon.png"; // Ensure the correct path
-import "./App.css"; // Import the CSS file
-import { Link } from "react-router-dom"; // Add this import
+import { FaMoon, FaSun, FaRegCommentAlt } from "react-icons/fa";
+import logo from "./assets/ghibliIcon.png";
+import "./App.css";
+import { Link } from "react-router-dom";
 
-const Header = ({ darkMode, toggleDarkMode }) => {
+const Header = ({ isDarkMode, toggleDarkMode }) => {
   return (
-    <header className={`header ${darkMode ? "dark-mode" : "light-mode"}`}>
+    <header className={`header ${isDarkMode ? "dark-mode" : "light-mode"}`}>
       <div className="header-content">
-        <h4 className="header-text">Brooke</h4>
+        <h4 className="header-text">Brooke Richards</h4>
         <div className="logo-container">
-          <img src={logo} alt="Brooke Logo" className="header-logo" />
+          <img src={logo} alt="Ghibli Logo" className="header-logo" />
           <a
             href="https://www.youtube.com/watch?v=t5khm-VjEu4"
             target="_blank"
@@ -28,20 +28,20 @@ const Header = ({ darkMode, toggleDarkMode }) => {
       <div className="icon-container">
         <button
           onClick={toggleDarkMode}
-          className={darkMode ? "dark-mode" : ""}
+          aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+          title={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
         >
           <span className="moon">
-            <FaMoon />
+            {isDarkMode ? <FaSun /> : <FaMoon />}
           </span>
         </button>
         <Link
           to="/feedback"
           className="feedback-icon"
-          title="Find a bug? Leave feedback!"
+          title="Leave feedback"
+          aria-label="Leave feedback"
         >
-          <div className="comment">
-            <FaRegCommentAlt />
-          </div>
+          <FaRegCommentAlt />
         </Link>
       </div>
     </header>
