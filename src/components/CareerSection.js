@@ -5,7 +5,7 @@ const CareerSection = () => {
   return (
     <section className="career-section">
       <div className="career-content">
-        <h2>What I Do at Qurrent</h2>
+        <h2>What I Do at Qurrent:</h2>
         <p style={{ marginBottom: '1.5rem', opacity: 0.85 }}>
           I build, maintain, and oversee the Supervisor application—an enterprise platform that enables 
           users to manage AI workforces, workflows, and agent instances at scale.
