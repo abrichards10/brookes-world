@@ -20,7 +20,7 @@ const projects = [
     image: projectImage1,
     caption: "Home Renovation",
     summary:
-      "Renovating my childhood home into an AirBnB (featuring my dad ❤️). I drive 3 hours every 3 weeks to work on the next part of the project.",
+      "Renovating my childhood home (featuring my dad ❤️). I drive 3 hours every 3 weeks to work on the next part of the project.",
   },
   {
     image: projectImage2,
