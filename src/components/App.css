@@ -2648,7 +2648,7 @@ html[data-theme="dark"] #root {
     opacity 0.25s ease;
 }
 .moon-peek.is-up {
-  transform: translate(-50%, -44px);
+  transform: translate(-50%, -40px);
   opacity: 1;
 }
 .moon-peek-img {
@@ -3244,7 +3244,7 @@ html[data-theme="dark"] #root {
   .moon-scene,
   .moon-hit { width: 66px; height: 66px; top: 130px; right: 10%; }
   .moon-peek-img { width: 58px; }
-  .moon-peek.is-up { transform: translate(-50%, -32px); }
+  .moon-peek.is-up { transform: translate(-50%, -30px); }
   .case-card { padding: var(--space-xl); }
 }
 
