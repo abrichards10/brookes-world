@@ -2,21 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <!-- <link rel="icon" href="%PUBLIC_URL%/favicon.ico" /> TODO: UPDATE--> 
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/ghibliIcon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#E8E6E1" />
+    <meta name="theme-color" content="#ECE7DD" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#16151B" media="(prefers-color-scheme: dark)" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap">
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <meta
       name="description"
-      content="Brooke Richards - Full Stack Developer Portfolio"
+      content="Brooke Richards — Full Stack Developer at Qurrent building AI-powered enterprise platforms across React, Vue, Python, and cloud infrastructure."
     />
-    <!-- <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" /> TODO: UPDATE-->
-    <title>Brooke's World</title>
+    <meta name="author" content="Brooke Richards" />
+
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Brooke's World — Brooke Richards" />
+    <meta
+      property="og:description"
+      content="Full Stack Developer at Qurrent. AI agents, platform engineering, and a good bookshelf."
+    />
+    <meta property="og:url" content="https://abrichards10.github.io/brookes-world" />
+    <meta property="og:image" content="%PUBLIC_URL%/ghibliIcon.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Brooke's World — Brooke Richards" />
+    <meta
+      name="twitter:description"
+      content="Full Stack Developer at Qurrent. AI agents, platform engineering, and a good bookshelf."
+    />
+    <meta name="twitter:image" content="%PUBLIC_URL%/ghibliIcon.png" />
+
+    <title>Brooke Richards — Full Stack Developer</title>
     <style>
-      /* Prevent white flash on load and overscroll */
+      /* Prevent white flash on load and overscroll.
+         Keep in sync with --sky-day in src/styles/colors.css */
       html, body, #root {
-        background-color: #E8E6E1;
+        background-color: #ECE7DD;
         margin: 0;
         padding: 0;
       }

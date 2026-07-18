@@ -2,9 +2,9 @@ import React from "react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import "./App.css";
 
-const Footer = ({ darkMode }) => {
+const Footer = () => {
   return (
-    <footer className={`footer ${darkMode ? "dark-mode" : "light-mode"}`}>
+    <footer className="footer">
       <div className="footer-content">
         <div className="footer-main-content">
           <div className="social-links">

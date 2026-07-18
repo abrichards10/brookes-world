@@ -4,21 +4,19 @@ import TagCloud from "TagCloud";
 const container = ".content";
 const texts = [
   // Frontend
-  "Vue.js",
   "React",
+  "Vue.js",
   "TypeScript",
   "JavaScript",
   "Flutter",
   "Dart",
   "HTML",
   "CSS",
-  "Bootstrap",
   // Backend & Languages
   "Node.js",
   "Python",
-  "Java",
-  "C#",
-  "Objective-C",
+  "REST APIs",
+  "LLM Agents",
   // Databases & Data
   "PostgreSQL",
   "BigQuery",
@@ -29,18 +27,19 @@ const texts = [
   "Docker",
   "CI/CD",
   // Identity & Auth
+  "GCIP",
   "Auth0",
   "Okta",
   "Microsoft Entra",
+  "SSO",
   "RBAC",
   // Mobile
-  "iOS Development",
-  "Android Development",
-  "XCode",
+  "iOS",
+  "Android",
   // Tools
   "Git",
-  "Postman",
-  "Jupyter Notebook",
+  "Slack API",
+  "PostHog",
 ];
 
 const options = {

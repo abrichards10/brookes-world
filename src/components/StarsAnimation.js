@@ -15,9 +15,9 @@ const StarsAnimation = () => {
     // Generate stars with twinkling
     for (let i = 0; i < numStars; i++) {
       const star = document.createElement("div");
-      star.className = "star twinkle";
-      
+
       const size = Math.random() * 3 + 1;
+      star.className = size > 2.6 ? "star twinkle star-bright" : "star twinkle";
       const top = Math.random() * 100;
       const left = Math.random() * 100;
       

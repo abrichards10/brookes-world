@@ -11,28 +11,31 @@ const Header = ({ isDarkMode, toggleDarkMode }) => {
       <div className="header-content">
         <h4 className="header-text">Brooke Richards</h4>
         <div className="logo-container">
-          <img src={logo} alt="Ghibli Logo" className="header-logo" />
           <a
             href="https://www.youtube.com/watch?v=t5khm-VjEu4"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-bubble-link"
+            className="logo-link"
+            aria-label="Watch the new Studio Ghibli movie trailer"
           >
-            <div className="text-bubble">
+            <img src={logo} alt="Studio Ghibli" className="header-logo" />
+            <span className="text-bubble">
               Psst... Have you seen the new Studio Ghibli movie?
-            </div>
+            </span>
           </a>
         </div>
       </div>
 
       <div className="icon-container">
         <button
-          onClick={toggleDarkMode}
+          className="theme-toggle"
+          onClick={(e) => toggleDarkMode(e)}
           aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
           title={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
         >
-          <span className="moon">
-            {isDarkMode ? <FaSun /> : <FaMoon />}
+          <span className={`theme-icon ${isDarkMode ? "is-dark" : "is-light"}`}>
+            <FaMoon className="icon-moon" />
+            <FaSun className="icon-sun" />
           </span>
         </button>
         <Link
