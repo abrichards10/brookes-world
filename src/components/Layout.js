@@ -36,7 +36,6 @@ const Layout = ({ isDarkMode }) => {
           <div className="nebula" aria-hidden="true" />
           <div className="nebula-detail" aria-hidden="true" />
           <div className="aurora" aria-hidden="true" />
-          <div className="moon-orb" aria-hidden="true" />
           <div style={{ opacity: 1, transition: "opacity 0.8s ease" }}>
             <StarsAnimation />
           </div>

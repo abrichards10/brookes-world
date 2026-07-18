@@ -25,6 +25,7 @@ const PLACES = [
     name: "Spain",
     coords: [-3.7, 40.4],
     maps: ["world"],
+    country: "Spain",
     blurb: "Wandering Madrid, Andalucía, and everything in between.",
     photos: [],
   },
@@ -33,6 +34,7 @@ const PLACES = [
     name: "California",
     coords: [-119.6, 37.0],
     maps: ["us", "world"],
+    country: "United States of America",
     blurb: "Home base — the Bay Area and beyond.",
     photos: [],
   },
@@ -41,6 +43,7 @@ const PLACES = [
     name: "New York",
     coords: [-74.5, 42.8],
     maps: ["us", "world"],
+    country: "United States of America",
     blurb: "City trips and East Coast adventures.",
     photos: [],
   },
@@ -107,6 +110,20 @@ const WhereIveBeen = () => {
     [activeMap]
   );
 
+  // Which geographies (countries on world, states on US) to colour in
+  const highlightNames = useMemo(() => {
+    if (activeMap === "us") {
+      return new Set(
+        PLACES.filter((p) => p.maps.includes("us")).map((p) => p.name)
+      );
+    }
+    return new Set(
+      PLACES.filter((p) => p.maps.includes("world") && p.country).map(
+        (p) => p.country
+      )
+    );
+  }, [activeMap]);
+
   useEffect(() => {
     if (!selected) return;
     const onKey = (e) => {
@@ -161,7 +178,9 @@ const WhereIveBeen = () => {
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  className="rsm-geography"
+                  className={`rsm-geography ${
+                    highlightNames.has(geo.properties.name) ? "is-visited" : ""
+                  }`}
                 />
               ))
             }

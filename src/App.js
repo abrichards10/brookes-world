@@ -2,6 +2,7 @@ import React from "react";
 import { flushSync } from "react-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
+import Moon from "./components/Moon";
 import FeedbackForm from "./components/FeedbackForm";
 import Layout from "./components/Layout";
 import IntroSection from "./components/IntroSection";
@@ -44,7 +45,9 @@ export default function App() {
       root.style.setProperty("--r-y", "0px");
     }
 
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     if (document.startViewTransition && !reduced) {
       // Direction: going to light expands OUT of the toggle; going to dark
       // collapses INTO it.
@@ -73,9 +76,13 @@ export default function App() {
             element={
               <>
                 <TopBar>
-                  <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
+                  <Header
+                    toggleDarkMode={toggleDarkMode}
+                    isDarkMode={isDarkMode}
+                  />
                   <SectionNav />
                 </TopBar>
+                {isDarkMode && <Moon />}
                 <Home />
                 <IntroSection />
                 <SelectedWork />

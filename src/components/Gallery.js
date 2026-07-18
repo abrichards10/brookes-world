@@ -26,7 +26,7 @@ const projects = [
     image: projectImage2,
     caption: "Rock Climbing",
     summary:
-      "Since December 2022 I've climbed 2–3× per week with my partner to help relieve the pain from my severe scoliosis.",
+      "Since December 2022 I've climbed 2–4× per week with my partner to help relieve the pain from my severe scoliosis.",
   },
   {
     image: projectImage3,

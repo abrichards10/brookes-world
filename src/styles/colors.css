@@ -46,14 +46,14 @@
   --hue-rose:   #C05B7A;
   --hue-sky:    #2E7FB8;
 
-  /* Book-cloth spine palette */
-  --book-1: #5F4C93;
-  --book-2: #2E7D6B;
-  --book-3: #B5533C;
-  --book-4: #3B6EA5;
-  --book-5: #C0872E;
-  --book-6: #8E4C6E;
-  --book-7: #4A7A4A;
+  /* Book-cloth spine palette — muted jewel tones, indigo-led, on-theme */
+  --book-1: #574FA3; /* indigo (brand) */
+  --book-2: #B0843C; /* warm ochre */
+  --book-3: #2E7C72; /* deep teal */
+  --book-4: #B26576; /* dusty rose */
+  --book-5: #3F6C98; /* dusty blue */
+  --book-6: #965A72; /* muted plum */
+  --book-7: #7B67A6; /* soft violet */
 
   /* Wood shelf */
   --wood-1: #A6764A;
@@ -124,6 +124,8 @@
   --map-border-light: #C6D2E0;
   --map-land-dark: #26263A;
   --map-border-dark: #3A3A52;
+  --map-visited-light: #B4ABEA;
+  --map-visited-dark: #4A3F8C;
 
   /* ---------- SCENES (day sky / night sky) ---------- */
   /* Day: gentle pastel sky fading into warm paper, with a soft sun */
